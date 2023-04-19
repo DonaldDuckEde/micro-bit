@@ -12,19 +12,15 @@ function start () {
     while (zero == 0) {
         basic.showNumber(actionNumber)
         if (input.buttonIsPressed(Button.A)) {
-            if (actionNumber == 0) {
-                error("Value Error")
-            } else {
-                actionNumber += -1
-            }
-        } else if (input.buttonIsPressed(Button.B)) {
-            if (actionNumber == 9) {
-                error("Value Error")
-            } else {
-                actionNumber += 1
-            }
-        } else if (input.buttonIsPressed(Button.AB)) {
             main(actionNumber)
+        } else if (input.buttonIsPressed(Button.B)) {
+            if (actionNumber < 10) {
+                actionNumber += 1
+                basic.showNumber(actionNumber)
+            } else {
+                actionNumber = 0
+                basic.showNumber(actionNumber)
+            }
         }
     }
 }
